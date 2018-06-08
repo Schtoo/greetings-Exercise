@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="skeleton.css">
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="great.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/greet.css">
   <title>Greetings Exercise</title>
 </head>
 <body>
@@ -14,31 +14,36 @@
       <div class="twelve columns">
         <h2>Greetings</h2>
         <form class="input">
-          Name <input class="text" type='text' name="name" placeholder="Enter name">
+          Name <input class="insert" id="NameSearch" type='text' name="" value="" placeholder="Enter name">
         </form>
         <hr>
         <div class="row">
-          <div class="twelve columns">
-          Counter: 0
+          <div class="twelve columns" id="screenPrint">
+            <p></p>
+          </div>
+        </div>
+          <div class="row">
+          <div class="twelve columns" id="counter">
+           0
         </div>
       </div>
         <div class="row">
           <div class="three columns">
           <label class="inline1">
             <input type="radio" name="language" value="english">
-            <span class="eng">English</span><br>
+            <span class="eng">english</span><br>
           </label>
         </div>
         <div class="three columns">
           <label class="inline2">
             <input type="radio" name="language" value="xhosa">
-            <span class="xosa">IsiXhosa</span><br>
+            <span class="xosa">xhosa</span><br>
           </label>
         </div>
         <div class="three columns">
           <label class="inline3">
             <input type="radio" name="language" value="afrikaans">
-            <span class="arfik">Afrikaans</span><br>
+            <span class="arfik">afrikaans</span><br>
           </label>
         </div>
       </div>
@@ -46,13 +51,12 @@
         <div class="row">
           <div class="twelve columns">
         <button class="btn" type="button" name="button">Greet</button>
-
         <button class="reset" type="button" name="bttn">Reset</button>
       </div>
     </div>
         <br/>
         <br/>
-        <script></script>
+        <script src="greet.js"></script>
         <br>
         <br>
 </body>
