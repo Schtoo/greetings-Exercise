@@ -14,7 +14,8 @@
       <div class="twelve columns">
         <h2>Greetings</h2>
         <form class="input">
-          Name <input class="insert" id="NameSearch" type='text' name="" value="" placeholder="Enter name">
+          Name <input class="insert" id="NameSearch" type='text' name="" value="" placeholder="Enter name"
+          onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
         </form>
         <hr>
         <div class="row">
@@ -30,20 +31,20 @@
         <div class="row">
           <div class="three columns">
           <label class="inline1">
-            <input type="radio" name="language" value="english">
-            <span class="eng">english</span><br>
+            <input type="radio" name="language" value="English">
+            <span class="eng">English</span><br>
           </label>
         </div>
         <div class="three columns">
           <label class="inline2">
-            <input type="radio" name="language" value="xhosa">
-            <span class="xosa">xhosa</span><br>
+            <input type="radio" name="language" value="isiXhosa">
+            <span class="xosa">isiXhosa</span><br>
           </label>
         </div>
         <div class="three columns">
           <label class="inline3">
-            <input type="radio" name="language" value="afrikaans">
-            <span class="arfik">afrikaans</span><br>
+            <input type="radio" name="language" value="Afrikaans">
+            <span class="arfik">Afrikaans</span><br>
           </label>
         </div>
       </div>
