@@ -14,10 +14,8 @@ function greeted() {
   if (name === undefined || name === "") {
     printElement.innerHTML = "Please insert your name";
     return;
-  } else if (name == NaN) {
-    printElement.innerHTML = "Please insert valid name";
-    return;
   }
+
   var checked = document.querySelector("input[name='language']:checked");
   if (checked) {
     //check if it exists in map if not add it
