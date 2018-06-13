@@ -1,32 +1,43 @@
-function greetFactory() {
+function GreetFactory(stored) {
 
-  function Errors() {
-    if (name === undefined || name === "") {
-      printElement.innerHTML = "Please insert your name";
-      return;
-    } else if (name == NaN) {
-      printElement.innerHTML = "Please insert valid name";
-      return;
+  var names = stored || {};
+
+  function giveName(name) {
+
+    if (name === "") {
+      return false;
+    }
+
+    if (names[name] === undefined) {
+      names[name] = 0;
+    }
+    return name;
+  }
+
+  function greeting(name, lang) {
+    var theName = giveName(name);
+    if (theName === false) {
+      return "please insert valid name";
+    }
+    if (lang === "English") {
+      return "Hello, " + theName;
+    } else if (lang === "isiXhosa") {
+      return "Molo, " + theName;
+    } else if (lang === "Afrikaans") {
+      return "Hallo, " + theName;
     }
   }
 
-  function CheckedButton(checkedRadio) {
-    if (storedNames[name] === undefined) {
-      storedNames[name] = 0;
-    }
-    if (checkedRadio === "English") {
-      printElement.innerHTML = "Hello, " + name;
-    } else if (checkedRadio === "isiXhosa") {
-      printElement.innerHTML = "Molo, " + name;
-    } else if (checkedRadio === "Afrikaans") {
-      printElement.innerHTML = "Hallo, " + name;
-    } else if (checkedRadio === undefined) {
-      printElement.innerHTML = "Please select language " + name;
-      return;
-    }
+  function counter() {
+    return Object.keys(names).length;
+  }
+
+  function getMap() {
+    return names;
   }
   return {
-    Errors,
-    CheckedButton
+    greeting,
+    counter,
+    getMap
   }
 }

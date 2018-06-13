@@ -11,23 +11,23 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="twelve columns">
+      <div class="six columns">
         <h2>Greetings</h2>
         <form class="input">
           Name <input class="insert" id="NameSearch" type='text' name="" value="" placeholder="Enter name"
           onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
         </form>
+        <div class="six columns">
+          Counter: <span id="count">0</span>
+        </div>
+    </div>
+  </div>
         <hr>
         <div class="row">
           <div class="twelve columns" id="screenPrint">
             <p></p>
           </div>
         </div>
-          <div class="row">
-          <div class="twelve columns" id="counter">
-           0
-        </div>
-      </div>
         <div class="row">
           <div class="three columns">
           <label class="inline1">
@@ -57,6 +57,7 @@
     </div>
         <br/>
         <br/>
+        <script src="greeting.js"></script>
         <script src="greet.js"></script>
         <br>
         <br>

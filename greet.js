@@ -2,52 +2,36 @@ var buttonElement = document.querySelector(".btn");
 var reset = document.querySelector(".reset");
 var textElement = document.querySelector(".insert");
 var printElement = document.querySelector("#screenPrint");
-var countElement = document.querySelector("#counter");
+var countElement = document.querySelector("#count");
 
 var storedNames = localStorage.getItem('storedNames') ? JSON.parse(localStorage.getItem("storedNames")) : {};
 
+var greeter = GreetFactory(storedNames);
 <!--//code for when the button is clicked-->
 function greeted() {
   var name = textElement.value.toLowerCase();
-  var restOfName = name.substring(1);
-  name = name.charAt(0).toUpperCase() + restOfName;
-  if (name === undefined || name === "") {
-    printElement.innerHTML = "Please insert your name";
-    return;
-  }
-
   var checked = document.querySelector("input[name='language']:checked");
+  //check if it exists in map if not add it
   if (checked) {
-    //check if it exists in map if not add it
-    if (storedNames[name] === undefined) {
-      storedNames[name] = 0;
+    var language = checked.value;
+    var restOfName = name.substring(1);
+    name = name.charAt(0).toUpperCase() + restOfName;
+    if (name === undefined && name === "") {
+      return;
     }
-    var checkedRadio = checked.value;
-    nameCount();
-
-    if (checkedRadio === "English") {
-      printElement.innerHTML = "Hello, " + name;
-    } else if (checkedRadio === "isiXhosa") {
-      printElement.innerHTML = "Molo, " + name;
-    } else if (checkedRadio === "Afrikaans") {
-      printElement.innerHTML = "Hallo, " + name;
-    } else if (checkedRadio === undefined) {
-      printElement.innerHTML = "Please select language " + name;
-    }
+    printElement.innerHTML = greeter.greeting(name, language);
+    countElement.innerHTML = greeter.counter();
+    localStorage.setItem('storedNames', JSON.stringify(greeter.getMap()));
+  } else {
+    printElement.innerHTML = "Please select language";
   }
-}
-
-//greet button clicked counter should increment
-function nameCount() {
-  localStorage.setItem('storedNames', JSON.stringify(storedNames));
-  countElement.innerHTML = Object.keys(storedNames).length;
 }
 //event listener for the greeted & nameCount function
 buttonElement.addEventListener("click", function() {
   greeted();
 });
 window.addEventListener("load", function() {
-  nameCount();
+  countElement.innerHTML = greeter.counter();
 })
 //reset button should refresh web-page
 reset.addEventListener("click", function() {
