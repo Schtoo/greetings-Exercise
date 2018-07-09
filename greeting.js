@@ -17,7 +17,7 @@ function GreetFactory(stored) {
   function greeting(name, lang) {
     var theName = giveName(name);
     if (theName === false) {
-      return "please insert valid name";
+      return "Please insert valid name";
     }
     if (lang === "English") {
       return "Hello, " + theName;

@@ -1,4 +1,4 @@
-var buttonElement = document.querySelector('#btn');
+var buttonElement = document.querySelector(".btn");
 var reset = document.querySelector(".reset");
 var textElement = document.querySelector(".insert");
 var printElement = document.querySelector("#screenPrint");
