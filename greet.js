@@ -10,14 +10,13 @@ var storedNames = localStorage.getItem('storedNames') ? JSON.parse(localStorage.
 var greeter = GreetFactory(storedNames);
 <!--//code for when the button is clicked-->
 function greeted() {
+  errorElement.innerHTML = "";
   var name = textElement.value.toLowerCase();
   var checked = document.querySelector("input[name='language']:checked");
   //check if it exists in map if not add it
   if (checked) {
     var language = checked.value;
-    var restOfName = name.substring(1);
-    name = name.charAt(0).toUpperCase() + restOfName;
-
+    name = name.charAt(0).toUpperCase() + name.slice(1);
     if (name === "") {
       // display message
       errorElement.innerHTML = "Please enter your name";
@@ -26,21 +25,15 @@ function greeted() {
     printElement.innerHTML = greeter.greeting(name, language);
     countElement.innerHTML = greeter.counter();
     localStorage.setItem('storedNames', JSON.stringify(greeter.getMap()));
-
-
-
+    textElement.value = "";
   } else {
+    // display message
     errorElement.innerHTML = "Please select language";
   }
-}
-
-var clearTextBox = function() {
-  textElement.value = "";
 }
 //event listener for the greeted & nameCount function
 buttonElement.addEventListener("click", function() {
   greeted();
-  clearTextBox();
 });
 window.addEventListener("load", function() {
   countElement.innerHTML = greeter.counter();

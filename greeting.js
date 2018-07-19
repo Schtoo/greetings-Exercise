@@ -2,23 +2,22 @@ function GreetFactory(stored) {
 
   var names = stored || {};
 
-  function giveName(name) {
+  function addToMap(name) {
     if (name) {
       if (names[name] === undefined) {
         names[name] = 0;
       }
-      // return name;
     }
   }
 
   function greeting(theName, lang) {
-    giveName(theName);
+    addToMap(theName);
     if (lang === "English") {
-      return "Hello " + theName;
-    } else if (lang === "isiXhosa") {
-      return "Molo " + theName;
+      return "Hello, " + theName;
+    } else if (lang === "IsiXhosa") {
+      return "Molo, " + theName;
     } else if (lang === "Afrikaans") {
-      return "Hallo " + theName;
+      return "Hallo, " + theName;
     }
   }
 
