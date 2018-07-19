@@ -3,32 +3,27 @@ function GreetFactory(stored) {
   var names = stored || {};
 
   function giveName(name) {
-
-    if (name === "") {
-      return false;
+    if (name) {
+      if (names[name] === undefined) {
+        names[name] = 0;
+      }
+      // return name;
     }
-
-    if (names[name] === undefined) {
-      names[name] = 0;
-    }
-    return name;
   }
 
-  function greeting(name, lang) {
-    var theName = giveName(name);
-    if (theName === false) {
-      return "Please insert valid name";
-    }
+  function greeting(theName, lang) {
+    giveName(theName);
     if (lang === "English") {
-      return "Hello, " + theName;
+      return "Hello " + theName;
     } else if (lang === "isiXhosa") {
-      return "Molo, " + theName;
+      return "Molo " + theName;
     } else if (lang === "Afrikaans") {
-      return "Hallo, " + theName;
+      return "Hallo " + theName;
     }
   }
 
   function counter() {
+    //console.log(names)
     return Object.keys(names).length;
   }
 

@@ -27,8 +27,7 @@ hr {
   color: #FFF;
   background-color: #9A0E2A;
 }
-/* #counter {
-  position:relative;
-  left: 20em;
-  bottom: 3.9em;
-} */
+
+.errorPrint {
+  color: red;
+}

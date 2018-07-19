@@ -1,6 +1,7 @@
 var buttonElement = document.querySelector('#btn');
 var reset = document.querySelector(".reset");
 var textElement = document.querySelector(".insert");
+var errorElement = document.querySelector('#errorPrint');
 var printElement = document.querySelector("#screenPrint");
 var countElement = document.querySelector("#count");
 
@@ -16,19 +17,30 @@ function greeted() {
     var language = checked.value;
     var restOfName = name.substring(1);
     name = name.charAt(0).toUpperCase() + restOfName;
-    if (name === undefined && name === "") {
+
+    if (name === "") {
+      // display message
+      errorElement.innerHTML = "Please enter your name";
       return;
     }
     printElement.innerHTML = greeter.greeting(name, language);
     countElement.innerHTML = greeter.counter();
     localStorage.setItem('storedNames', JSON.stringify(greeter.getMap()));
+
+
+
   } else {
-    printElement.innerHTML = "Please select language";
+    errorElement.innerHTML = "Please select language";
   }
+}
+
+var clearTextBox = function() {
+  textElement.value = "";
 }
 //event listener for the greeted & nameCount function
 buttonElement.addEventListener("click", function() {
   greeted();
+  clearTextBox();
 });
 window.addEventListener("load", function() {
   countElement.innerHTML = greeter.counter();
