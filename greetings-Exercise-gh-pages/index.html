@@ -17,7 +17,7 @@
           Name <input class="insert" id="NameSearch" type='text' name="" value="" placeholder="enter name"
           onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
         </form>
-        <div class="six columns">
+        <div class="six columns" id="checker">
           Counter: <span id="count">0</span>
         </div>
     </div>
@@ -27,7 +27,8 @@
           <div class="twelve columns" id="screenPrint">
             <p></p>
           </div>
-          <div class="twelve columns errorPrint" id="errorPrint">
+        <div class="twelve columns" id="errors">
+            <p></p>
           </div>
         </div>
         <div class="row">
@@ -59,8 +60,8 @@
     </div>
         <br/>
         <br/>
-        <script src="greeting.js"></script>
-        <script src="greet.js"></script>
+        <script src="greetings/greeting.js"></script>
+        <script src="greetings/greet.js"></script>
         <br>
         <br>
 </body>

@@ -2,19 +2,21 @@ function GreetFactory(stored) {
 
   var names = stored || {};
 
-  function addToMap(name) {
+  function giveName(name) {
+
     if (name) {
       if (names[name] === undefined) {
-        names[name] = 0;
-      }
-    }
+          names[name] = 0;
+       }
+     }
+     return name;
   }
 
-  function greeting(theName, lang) {
-    addToMap(theName);
+  function greeting(name, lang) {
+    var theName = giveName(name);
     if (lang === "English") {
       return "Hello, " + theName;
-    } else if (lang === "IsiXhosa") {
+    } else if (lang === "isiXhosa") {
       return "Molo, " + theName;
     } else if (lang === "Afrikaans") {
       return "Hallo, " + theName;
@@ -22,7 +24,6 @@ function GreetFactory(stored) {
   }
 
   function counter() {
-    //console.log(names)
     return Object.keys(names).length;
   }
 
