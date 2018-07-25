@@ -12,7 +12,7 @@ describe("greet function", function() {
   it('should give you a greeting in english', function() {
     var xhosaLang = GreetFactory();
     xhosaLang.greeting("Hello, Vusi")
-    assert.equal(xhosaLang.greeting("Vusi, English"), 'Hello,, Vusi')
+    assert.equal(xhosaLang.greeting("Vusi, English"), 'Hello, Vusi')
   })
   it('should greet you in afrikaans', function() {
     var afrikaansLang = GreetFactory();

@@ -28,6 +28,6 @@ hr {
   background-color: #9A0E2A;
 }
 
-.errorPrint {
+#errors {
   color: red;
 }
